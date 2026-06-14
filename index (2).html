@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Content Calendar — @noahugcjourney</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0d0d0d;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+    }
+    .container { width: 100%; max-width: 520px; }
+    .tag {
+      display: inline-block;
+      background: #10B981;
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 28px;
+    }
+    h1 {
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 1.05;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+    h1 span { color: #10B981; }
+    .stat { font-size: 15px; color: #555; margin-bottom: 40px; }
+    .divider { width: 100%; height: 1px; background: #1f1f1f; margin-bottom: 36px; }
+    .field { margin-bottom: 16px; }
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #888;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .field input {
+      display: block;
+      width: 100%;
+      padding: 16px 18px;
+      background: #181818;
+      border: 1.5px solid #252525;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .field input::placeholder { color: #333; }
+    .field input:focus { border-color: #10B981; }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 18px;
+      margin-top: 8px;
+      background: #10B981;
+      color: #000;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: Arial, Helvetica, sans-serif;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn:hover { background: #0ea572; }
+    .inside { margin-top: 36px; padding-top: 28px; border-top: 1px solid #1f1f1f; }
+    .inside-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: 14px;
+    }
+    .inside ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .inside ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #777;
+      line-height: 1.5;
+    }
+    .inside ul li::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      min-width: 6px;
+      border-radius: 50%;
+      background: #10B981;
+      margin-top: 7px;
+    }
+    .footer { margin-top: 24px; font-size: 13px; color: #3a3a3a; text-align: center; }
+    #success { display: none; text-align: center; padding: 40px 0; }
+    .check-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #10B981;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 28px;
+      font-weight: 700;
+      color: #000;
+    }
+    #success h2 { font-size: 32px; font-weight: 700; margin-bottom: 10px; }
+    #success p { font-size: 15px; color: #666; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="form-view">
+      <div class="tag">Free Download</div>
+      <h1>Content Calendar<br><span>Framework</span></h1>
+      <p class="stat">The exact system behind 25M+ views.</p>
+      <div class="divider"></div>
+      <form id="lead-form">
+        <div class="field">
+          <label for="name">First Name</label>
+          <input type="text" id="name" placeholder="Your name" required autocomplete="given-name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="your@email.com" required autocomplete="email">
+        </div>
+        <button type="submit" class="btn">Get it free &rarr;</button>
+      </form>
+      <div class="inside">
+        <p class="inside-label">What's inside</p>
+        <ul>
+          <li>6 content types mapped to reach, saves, and trust</li>
+          <li>7-day weekly posting schedule you can follow immediately</li>
+          <li>Pre-post checklist to run before every video</li>
+          <li>3 proven hook templates with breakdowns</li>
+        </ul>
+      </div>
+      <p class="footer">@noahugcjourney &middot; noahgrowth.com</p>
+    </div>
+    <div id="success">
+      <div class="check-circle">&#10003;</div>
+      <h2>You're in.</h2>
+      <p>Your download started automatically.<br>Check your downloads folder.</p>
+      <p class="footer" style="margin-top: 28px;">@noahugcjourney &middot; noahgrowth.com</p>
+    </div>
+  </div>
+  <script>
+    var SHEET_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+    var PDF_URL = "https://noahugcjourney.github.io/content-calendar/Content_Calendar.pdf";
+    document.getElementById("lead-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      var name = document.getElementById("name").value.trim();
+      var email = document.getElementById("email").value.trim();
+      fetch(SHEET_URL, {
+        method: "POST", mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name, email: email, date: new Date().toISOString() })
+      }).catch(function(){});
+      var a = document.createElement("a");
+      a.href = PDF_URL;
+      a.download = "Noahs_Content_Calendar_Framework.pdf";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      document.getElementById("form-view").style.display = "none";
+      document.getElementById("success").style.display = "block";
+    });
+  </script>
+</body>
+</html>
